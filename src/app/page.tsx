@@ -233,7 +233,7 @@ export default function Home() {
             and identify the highest-impact automation opportunities for your business.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="https://calendly.com/bgkopenclaw" target="_blank">
+            <Link href="https://Calendly.com/Bgksystems" target="_blank">
               <Button size="lg" className="bg-slate-900 hover:bg-slate-800 text-white px-8">
                 <Calendar className="w-4 h-4 mr-2" />
                 Schedule Consultation

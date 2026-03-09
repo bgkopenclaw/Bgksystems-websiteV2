@@ -124,7 +124,7 @@ export default function ContactPage() {
                     <p className="text-slate-600 mb-3">
                       Book a free 30-minute consultation at a time that works for you.
                     </p>
-                    <Link href="https://calendly.com/bgkopenclaw" target="_blank">
+                    <Link href="https://Calendly.com/Bgksystems" target="_blank">
                       <Button variant="outline" className="border-slate-300 text-slate-700 hover:bg-slate-50">
                         Book on Calendly
                         <ArrowRight className="w-4 h-4 ml-2" />

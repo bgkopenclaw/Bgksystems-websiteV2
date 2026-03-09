@@ -46,7 +46,7 @@ export function Footer() {
                 <Linkedin className="w-4 h-4" />
                 LinkedIn
               </a>
-              <a href="https://calendly.com/bgkopenclaw" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-slate-600 hover:text-slate-900 transition-colors">
+              <a href="https://Calendly.com/Bgksystems" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-slate-600 hover:text-slate-900 transition-colors">
                 <Calendar className="w-4 h-4" />
                 Schedule a Call
               </a>
