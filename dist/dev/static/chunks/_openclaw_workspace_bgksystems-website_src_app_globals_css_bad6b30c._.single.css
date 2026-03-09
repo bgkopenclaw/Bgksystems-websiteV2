@@ -121,6 +121,7 @@
     --font-weight-medium: 500;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
+    --tracking-tighter: -.05em;
     --tracking-wide: .025em;
     --leading-tight: 1.25;
     --leading-snug: 1.375;
