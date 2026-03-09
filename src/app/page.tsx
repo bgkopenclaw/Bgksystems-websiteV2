@@ -6,36 +6,19 @@ import {
   Workflow, 
   TrendingUp, 
   CheckCircle2,
-  Linkedin,
-  Mail,
-  Calendar,
   Building2,
-  ArrowUpRight
+  ArrowUpRight,
+  Calendar,
+  Play
 } from "lucide-react";
 import Link from "next/link";
+import { Navigation } from "@/components/navigation";
+import { Footer } from "@/components/footer";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-slate-900 rounded-md flex items-center justify-center">
-              <span className="text-white font-bold text-sm">BGK</span>
-            </div>
-            <span className="text-lg font-semibold text-slate-900">BGK Systems</span>
-          </div>
-          <div className="hidden md:flex items-center gap-8">
-            <Link href="#services" className="text-sm text-slate-600 hover:text-slate-900 transition-colors">Services</Link>
-            <Link href="#process" className="text-sm text-slate-600 hover:text-slate-900 transition-colors">Process</Link>
-            <Link href="#results" className="text-sm text-slate-600 hover:text-slate-900 transition-colors">Results</Link>
-            <Button size="sm" className="bg-slate-900 hover:bg-slate-800 text-white">
-              Contact Us
-            </Button>
-          </div>
-        </div>
-      </nav>
+      <Navigation />
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 lg:pt-40 lg:pb-32 bg-slate-50">
@@ -52,22 +35,26 @@ export default function Home() {
               custom AI automation. From intelligent agents to complete workflow transformation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-slate-900 hover:bg-slate-800 text-white px-6">
-                Schedule a Consultation
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
-              <Button size="lg" variant="outline" className="border-slate-300 text-slate-700 hover:bg-slate-50 px-6">
-                View Case Studies
-              </Button>
+              <Link href="/contact">
+                <Button size="lg" className="bg-slate-900 hover:bg-slate-800 text-white px-6">
+                  Schedule a Consultation
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </Link>
+              <Link href="/case-studies">
+                <Button size="lg" variant="outline" className="border-slate-300 text-slate-700 hover:bg-slate-50 px-6">
+                  View Case Studies
+                </Button>
+              </Link>
             </div>
             
             <div className="mt-12 pt-8 border-t border-slate-200">
-              <p className="text-sm text-slate-500 mb-4">Trusted by teams at</p>
+              <p className="text-sm text-slate-500 mb-4">Organizations we typically work with</p>
               <div className="flex flex-wrap gap-8 text-slate-400">
-                <span className="font-semibold">TechFlow</span>
-                <span className="font-semibold">GreenLeaf</span>
-                <span className="font-semibold">MedCare Plus</span>
-                <span className="font-semibold">CloudSync</span>
+                <span className="font-semibold">B2B SaaS Companies</span>
+                <span className="font-semibold">Logistics & Transportation</span>
+                <span className="font-semibold">Healthcare Providers</span>
+                <span className="font-semibold">Professional Services</span>
               </div>
             </div>
           </div>
@@ -89,9 +76,10 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 gap-6">
             {services.map((service) => (
-              <div 
+              <Link 
                 key={service.title}
-                className="group p-8 bg-white border border-slate-200 rounded-lg hover:border-slate-300 hover:shadow-lg transition-all"
+                href="/services"
+                className="group p-8 bg-white border border-slate-200 rounded-lg hover:border-slate-300 hover:shadow-lg transition-all block"
               >
                 <div className="w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center mb-6 group-hover:bg-slate-900 transition-colors">
                   <service.icon className="w-6 h-6 text-slate-700 group-hover:text-white transition-colors" />
@@ -106,8 +94,17 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </Link>
             ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link href="/services">
+              <Button variant="outline" className="border-slate-300 text-slate-700 hover:bg-slate-50">
+                View All Services
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -139,6 +136,15 @@ export default function Home() {
               </div>
             ))}
           </div>
+
+          <div className="mt-16 text-center">
+            <Link href="/contact">
+              <Button className="bg-slate-900 hover:bg-slate-800 text-white">
+                Start Your Project
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -155,10 +161,12 @@ export default function Home() {
                 We focus on outcomes that matter: reduced operational costs, eliminated repetitive work, 
                 and teams that can focus on high-value activities.
               </p>
-              <Button className="bg-slate-900 hover:bg-slate-800 text-white">
-                Read Case Studies
-                <ArrowUpRight className="w-4 h-4 ml-2" />
-              </Button>
+              <Link href="/case-studies">
+                <Button className="bg-slate-900 hover:bg-slate-800 text-white">
+                  Read Case Studies
+                  <ArrowUpRight className="w-4 h-4 ml-2" />
+                </Button>
+              </Link>
             </div>
             
             <div className="grid grid-cols-2 gap-6">
@@ -202,6 +210,15 @@ export default function Home() {
               </div>
             ))}
           </div>
+
+          <div className="mt-12 text-center">
+            <Link href="/case-studies">
+              <Button variant="outline" className="border-slate-600 text-white hover:bg-slate-800">
+                View All Case Studies
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -216,14 +233,17 @@ export default function Home() {
             and identify the highest-impact automation opportunities for your business.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-slate-900 hover:bg-slate-800 text-white px-8">
-              <Calendar className="w-4 h-4 mr-2" />
-              Schedule Consultation
-            </Button>
-            <Button size="lg" variant="outline" className="border-slate-300 text-slate-700 hover:bg-white px-8">
-              <Mail className="w-4 h-4 mr-2" />
-              Email Us
-            </Button>
+            <Link href="https://calendly.com/bgkopenclaw" target="_blank">
+              <Button size="lg" className="bg-slate-900 hover:bg-slate-800 text-white px-8">
+                <Calendar className="w-4 h-4 mr-2" />
+                Schedule Consultation
+              </Button>
+            </Link>
+            <Link href="/contact">
+              <Button size="lg" variant="outline" className="border-slate-300 text-slate-700 hover:bg-white px-8">
+                Contact Us
+              </Button>
+            </Link>
           </div>
           <p className="mt-6 text-sm text-slate-500">
             No obligation. Typical response time: within 24 hours.
@@ -231,67 +251,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-16 bg-white border-t border-slate-200">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-12 mb-12">
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-8 h-8 bg-slate-900 rounded-md flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">BGK</span>
-                </div>
-                <span className="text-lg font-semibold text-slate-900">BGK Systems</span>
-              </div>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                Enterprise AI automation consulting. We build intelligent systems that scale.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold text-slate-900 mb-4">Services</h4>
-              <ul className="space-y-3 text-sm text-slate-600">
-                <li><Link href="#" className="hover:text-slate-900">AI Agent Development</Link></li>
-                <li><Link href="#" className="hover:text-slate-900">Workflow Automation</Link></li>
-                <li><Link href="#" className="hover:text-slate-900">Process Optimization</Link></li>
-                <li><Link href="#" className="hover:text-slate-900">AI Consulting</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold text-slate-900 mb-4">Company</h4>
-              <ul className="space-y-3 text-sm text-slate-600">
-                <li><Link href="#" className="hover:text-slate-900">About</Link></li>
-                <li><Link href="#" className="hover:text-slate-900">Case Studies</Link></li>
-                <li><Link href="#" className="hover:text-slate-900">Blog</Link></li>
-                <li><Link href="#" className="hover:text-slate-900">Contact</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold text-slate-900 mb-4">Contact</h4>
-              <div className="space-y-3">
-                <a href="mailto:Bgk@Bgksystems.com" className="flex items-center gap-2 text-sm text-slate-600 hover:text-slate-900 transition-colors">
-                  <Mail className="w-4 h-4" />
-                  Bgk@Bgksystems.com
-                </a>
-                <a href="https://www.linkedin.com/in/benjamin-gruber-kohana-14399b3b4/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-slate-600 hover:text-slate-900 transition-colors">
-                  <Linkedin className="w-4 h-4" />
-                  LinkedIn
-                </a>
-                <a href="https://calendly.com/bgkopenclaw" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-slate-600 hover:text-slate-900 transition-colors">
-                  <Calendar className="w-4 h-4" />
-                  Schedule a Call
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-slate-500 text-sm">
-              © 2026 BGK Systems. All rights reserved.
-            </p>
-            <p className="text-slate-400 text-sm">
-              Benjamin Gruber-Kohana
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }
@@ -387,18 +347,18 @@ const stats = [
 
 const testimonials = [
   {
-    quote: "BGK Systems delivered exactly what they promised. Our customer response time dropped from hours to minutes, and the system pays for itself every month.",
-    author: "Sarah Chen",
-    role: "CTO, TechFlow Solutions"
+    quote: "The methodology BGK Systems brought to our automation project was exceptional. Their systematic approach to identifying bottlenecks and designing solutions saved us months of trial and error.",
+    author: "Operations Director",
+    role: "Mid-Size B2B Software Company"
   },
   {
-    quote: "The ROI was clear within the first quarter. We've automated 80% of our lead qualification process, and our sales team is more productive than ever.",
-    author: "David Park",
-    role: "CEO, GreenLeaf Logistics"
+    quote: "What impressed us most was their depth of technical expertise combined with genuine business acumen. They didn't just build what we asked for—they designed what we actually needed.",
+    author: "VP of Sales",
+    role: "Regional Logistics Provider"
   },
   {
-    quote: "Professional, thorough, and results-driven. They understood our compliance requirements and built a system that exceeded our expectations.",
-    author: "Dr. Emily Watson",
-    role: "Director, MedCare Plus"
+    quote: "Working with BGK Systems felt like having an internal AI team. Their process-oriented mindset and attention to compliance requirements gave us confidence from day one.",
+    author: "Practice Manager",
+    role: "Multi-Location Healthcare Provider"
   }
 ];
